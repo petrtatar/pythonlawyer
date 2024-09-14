@@ -23,8 +23,11 @@ user = {'in_game': False,
 def get_random_number() -> int:
     return random.randint(a=1, b=100)
 
+def filter_start(message: Message):
+    return message.text == '/start'
 
-@dp.message(CommandStart())
+
+@dp.message(filter_start)
 async def cmd_start(message: Message):
     await message.answer(text='Угадай число')
 
