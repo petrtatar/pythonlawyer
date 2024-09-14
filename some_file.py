@@ -18,14 +18,14 @@ async def cmd_help(message: Message):
     await message.reply('Напиши мне сообщение и я его повторю')
 
 
-@dp.message(F.photo)
-async def send_echo_photo(message: Message):
-    await message.answer_photo(message.photo[-1].file_id)
-
-
 @dp.message()
-async def send_echo_message(message: Message):
-    await message.reply(text=message.text)
+async def send_copy(message: Message):
+    try:
+        await message.send_copy(chat_id=message.chat.id)
+    except TypeError:
+        await message.reply(
+            text='К сожалению, отправленные данные не поддерживаются методом send_copy'
+        )
 
 
 if __name__ == '__main__':
