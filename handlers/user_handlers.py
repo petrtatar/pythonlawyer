@@ -47,7 +47,7 @@ async def play_rock(message: Message):
             f"{bot_choice}\n\nYes, I won! Don't get upset, we can play one more time!",
             reply_markup=kb.play
         )
-    if bot_choice == 'Scissors✂':
+    if bot_choice == 'Scissors✂️':
         await message.answer(
             f"{bot_choice}\n\nOkey, you beat me. But I'll win next time!",
             reply_markup=kb.play
@@ -89,6 +89,6 @@ async def play_rock(message: Message):
         )
     if bot_choice == 'Paper📄':
         await message.answer(
-            f"{bot_choice}\n\nOkey, you beat me. But I'll win next time!",
+            f"{bot_choice}\n\nOkay, you beat me. But I'll win next time!",
             reply_markup=kb.play
         )
