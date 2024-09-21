@@ -20,6 +20,10 @@ async def set_commands(bot: Bot):
         BotCommand(
             command='help',
             description='Information about the bot'
+        ),
+        BotCommand(
+            command='fake',
+            description='Option for nothing'
         )
     ]
     await bot.set_my_commands(commands=commands, scope=BotCommandScopeDefault())
@@ -35,7 +39,7 @@ async def run():
     bot = Bot(bot_token)
     dp = Dispatcher()
 
-    await set_commands(bot)
+    dp.startup.register(set_commands)
     register_handlers(dp)
     await dp.start_polling(bot)
 
